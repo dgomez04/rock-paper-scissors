@@ -1,6 +1,12 @@
 //player choices for r, p , s
 const choices = ["Rock", "Paper", "Scissors"];
 
+//global score attributes
+let playerCount= 0;
+let computerCount= 0;
+
+//DOM score tag
+const scoreDisplay = document.querySelector("#scoreDisplay");
 
 /* used to get the computer choice  */
 function getComputerSelection() {
@@ -19,8 +25,7 @@ playerChoice.forEach((button) => {
 });
 
 
-/* plays a round of r, p, s*/
-//TODO: create a counter tag that records the games score, edited everytime playRound() is called.
+/* plays a round of r, p, s & records game-score on scoreDisplay tag*/
 
 function playRound(playerSelection, computerSelection) {
     //ties, computer wins, player wins.
@@ -29,11 +34,12 @@ function playRound(playerSelection, computerSelection) {
     } else if ((computerSelection === "Rock" && playerSelection === "Scissors") 
            || (computerSelection === "Scissors" && playerSelection === "Paper") 
            || (computerSelection === "Paper" && playerSelection === "Rock") ) {
-        return("COMPUTER WIN");
+        computerCount++;
     } else {
-        return("PLAYER WIN");
+        playerCount++;
     }
-
+    
+    scoreDisplay.textContent = `Player: ${playerCount} Computer: ${computerCount}`;
 }
 
 /* plays r, p, s until someone wins the game*/
