@@ -8,34 +8,27 @@ function getComputerSelection() {
    return choice;
 }
 
-/* used to input the players choice */
-function getPlayerSelection() {
-   const userInput = prompt("Enter your choice: ", undefined)
-   let choice;
+//eventListener that calls the playRound function everytime the player chooses a button.
 
-    for(let i = 0; i < choices.length; i++) {
-        if(userInput.toLowerCase() === choices[i].toLowerCase()) {
-             choice = choices[i];
-        }
-    }
+const playerChoice = document.querySelectorAll("button");
 
-    return choice;
+playerChoice.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(playRound(button.id, getComputerSelection()));
+    });
+});
 
-}
 
 /* plays a round of r, p, s*/
-
-/*
- rock beats scissors
- scissors beat paper
- paper beats rock
-*/
+//TODO: create a counter tag that records the games score, edited everytime playRound() is called.
 
 function playRound(playerSelection, computerSelection) {
     //ties, computer wins, player wins.
     if(computerSelection === playerSelection ) {
         return("TIE");
-    } else if ((computerSelection === "Rock" && playerSelection === "Scissors") || (computerSelection === "Scissors" && playerSelection === "Paper") || (computerSelection === "Paper" && playerSelection === "Rock") ) {
+    } else if ((computerSelection === "Rock" && playerSelection === "Scissors") 
+           || (computerSelection === "Scissors" && playerSelection === "Paper") 
+           || (computerSelection === "Paper" && playerSelection === "Rock") ) {
         return("COMPUTER WIN");
     } else {
         return("PLAYER WIN");
@@ -65,6 +58,3 @@ function playGame() {
 
     }
 }
-
-//runs the game.
-playGame();
