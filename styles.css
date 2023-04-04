@@ -1,0 +1,32 @@
+
+
+body {
+    background-color: #35355f;
+    font-family: 'Roboto', arial;
+} 
+
+.container  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    gap: 70px;
+}
+
+#Rock img {
+   height: 32px;
+   width: 32px;
+}
+
+#Paper img {
+    height: 37px;
+    width: 37px;
+    margin-bottom: 4px;
+}
+
+button {
+    height: 50px;
+    width: 200px;
+    display: inline-flex;
+    align-items: center;
+}

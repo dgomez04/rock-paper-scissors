@@ -40,27 +40,20 @@ function playRound(playerSelection, computerSelection) {
     }
     
     scoreDisplay.textContent = `Player: ${playerCount} Computer: ${computerCount}`;
-}
 
-/* plays r, p, s until someone wins the game*/
-function playGame() {
-    //score attributes
-    let scoreComputer= 0;
-    let scorePlayer= 0;
-
-    //while either score attributes aren't five, play game 
-    while(!(scoreComputer == 5 || scorePlayer == 5)) {
-        //create a variable in order to manipulate playRound's return value.
-        let round = playRound(getPlayerSelection(), getComputerSelection());
-        console.log(round);
-
-        if(round === "COMPUTER WIN") {
-            scoreComputer++;
-            console.log("Computer score: " + scoreComputer);
-        } else if (round === "PLAYER WIN") {
-            scorePlayer++;
-            console.log("Player score: " + scorePlayer);
-        } 
-
+    if(playerCount == 5 || computerCount == 5) {
+        gameEnd();
     }
 }
+
+
+//make a pop up with try again 
+
+function gameEnd() {
+   scoreDisplay.textContent = `SOMEBODY WON`
+   computerCount = 0;
+   playerCount = 0;
+ }
+ 
+
+
